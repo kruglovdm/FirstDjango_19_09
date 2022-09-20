@@ -18,7 +18,7 @@ items = [
 
 
 def main_page(request):
-    return HttpResponse("Hello-)")
+    return render(request, 'index.html')
 
 
 def about(request):
@@ -40,8 +40,7 @@ def item(request, item_id: int):
 
 
 def items_list(request):
-    result = "<html><ol>"
-    for item in items:
-        result += f"<li><a href='item/{item['id']}'>{item['name']}</a></li>"
-    result += "</ol></html>"
-    return HttpResponse(result)
+    context = {
+        "items": items
+    }
+    return render(request, 'items_list.html', context)
