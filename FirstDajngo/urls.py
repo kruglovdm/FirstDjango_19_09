@@ -20,4 +20,5 @@ from MainApp import views
 urlpatterns = [
     path('', views.main_page),
     path('about', views.about),
+    path('item/<int:item_id>', views.item),
 ]
